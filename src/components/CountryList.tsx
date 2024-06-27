@@ -27,6 +27,12 @@ const CountryList: React.FC = () => {
       )
     ) {
       setSelectedCountries([...selectedCountries, country]);
+      setCountries(
+        countries.filter(
+          (originCountry: Country) =>
+            originCountry.name.common !== country.name.common
+        )
+      );
     } else {
       setSelectedCountries(
         selectedCountries.filter(
@@ -34,6 +40,7 @@ const CountryList: React.FC = () => {
             selectedCountry.name.common !== country.name.common
         )
       );
+      setCountries([...countries, country]);
     }
   };
 
