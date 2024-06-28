@@ -46,8 +46,10 @@ const CountryList: React.FC = () => {
 
   return (
     <div>
-      <h1>Favorite Countries</h1>
-      <div>
+      <h1 className="text-3xl font-bold text-center mb-8">
+        Favorite Countries
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {selectedCountries.map((country: Country) => {
           return (
             <CountryCard
@@ -58,8 +60,8 @@ const CountryList: React.FC = () => {
           );
         })}
       </div>
-      <h1>All Countries</h1>
-      <div>
+      <h1 className="text-3xl font-bold text-center mb-8">All Countries</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {countries.map((country: Country) => {
           return (
             <CountryCard

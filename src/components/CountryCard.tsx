@@ -10,10 +10,13 @@ const CountryCard: React.FC<CountryCardProps> = ({
   handleSelectCountry,
 }) => {
   return (
-    <div onClick={() => handleSelectCountry(country)}>
-      <img src={country.flags.svg} style={{ width: "40px", height: "40px" }} />
-      <h4>{country.name.common}</h4>
-      <p>{country.capital}</p>
+    <div
+      className="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-transform transform "
+      onClick={() => handleSelectCountry(country)}
+    >
+      <img className="w-20 h-auto mx-auto mb-4" src={country.flags.svg} />
+      <h3 className="text-xl font-semibold mb-2">{country.name.common}</h3>
+      <p className="text-gray-600">{country.capital}</p>
     </div>
   );
 };
