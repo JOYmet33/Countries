@@ -11,7 +11,7 @@ const CountryCard: React.FC<CountryCardProps> = ({
 }) => {
   return (
     <div
-      className="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-transform transform "
+      className="max-w-100 p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-transform transform "
       onClick={() => handleSelectCountry(country)}
     >
       <img className="w-20 h-auto mx-auto mb-4" src={country.flags.svg} />
