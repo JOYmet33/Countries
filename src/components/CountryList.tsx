@@ -27,12 +27,6 @@ const CountryList: React.FC = () => {
       )
     ) {
       setSelectedCountries([...selectedCountries, country]);
-      setCountries(
-        countries.filter(
-          (originCountry: Country) =>
-            originCountry.name.common !== country.name.common
-        )
-      );
     } else {
       setSelectedCountries(
         selectedCountries.filter(
@@ -40,9 +34,16 @@ const CountryList: React.FC = () => {
             selectedCountry.name.common !== country.name.common
         )
       );
-      setCountries([...countries, country]);
     }
   };
+
+  const filtedCountries: Country[] = countries.filter(
+    (country: Country) =>
+      !selectedCountries.some(
+        (selectedCountry: Country) =>
+          selectedCountry.name.common === country.name.common
+      )
+  );
 
   return (
     <div>
@@ -62,7 +63,7 @@ const CountryList: React.FC = () => {
       </div>
       <h1 className="text-3xl font-bold text-center mb-8">All Countries</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {countries.map((country: Country) => {
+        {filtedCountries.map((country: Country) => {
           return (
             <CountryCard
               key={country.name.common}
